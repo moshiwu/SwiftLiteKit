@@ -1,0 +1,16 @@
+PODS:
+  - SwiftLiteKit (0.1.0)
+
+DEPENDENCIES:
+  - SwiftLiteKit (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftLiteKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  SwiftLiteKit: 2484a5b019a330dcc4b716dbb31853f01006ffbf
+
+PODFILE CHECKSUM: 1131c8576500f1142592bdd20f0ea542098ca9ff
+
+COCOAPODS: 1.3.1

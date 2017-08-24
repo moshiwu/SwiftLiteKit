@@ -1,0 +1,6 @@
+framework module SwiftLiteKit {
+  umbrella header "SwiftLiteKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

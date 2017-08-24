@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'SwiftLiteKit_Example' do
+  pod 'SwiftLiteKit', :path => '../'
+end

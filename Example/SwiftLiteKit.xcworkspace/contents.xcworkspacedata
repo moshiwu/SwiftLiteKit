@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:SwiftLiteKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/moqiaowen/Documents/个人Git/SwiftLiteKit/Example/Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>
