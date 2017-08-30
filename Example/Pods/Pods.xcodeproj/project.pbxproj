@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240C968BA7C9BE4E5840E806B07DE827 /* SwiftLiteKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAE5391113255FC1D9D0F111D97D1CB /* SwiftLiteKit-dummy.m */; };
+		1DD5D3C1444A00EBF9ACC525BD489976 /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC954D74CCEB7FCFF03214CC066BB3A4 /* Range+Extension.swift */; };
+		66A4AAB8ACBDD178E54B1CB7D9CB2EE7 /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27163928EF7A6FC2D567193A5F7F260B /* Codable+Extension.swift */; };
 		6E5EC691E008450571EF52BBCDBD3B8F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		79C2A3755CF396E7E13EC82B8FBE9A83 /* Pods-SwiftLiteKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E9043BA976EED1F1C3D884C7C5DE10 /* Pods-SwiftLiteKit_Example-dummy.m */; };
-		7E7E8F0C6678A1B6AA0C7400B15E8E8D /* Range+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F71796E3B1B486469C39083E2DE09DF /* Range+Extension.swift */; };
+		8553D86E70E572119DE8B81206F29DF4 /* SwiftLiteKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D737E29FD76436BDF76EDA027EC6D73E /* SwiftLiteKit-dummy.m */; };
 		B375E09AA3BBE78A513607EA349BD25D /* Pods-SwiftLiteKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EEB740553388D4286B4EA52344722DFB /* Pods-SwiftLiteKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA914DA6B8FE575740C904299A82E986 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6685838CA6463A6C2F9F9E3F9975480F /* String+Extension.swift */; };
-		E715743498ECB5B8A94719913A200E52 /* SwiftLiteKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8D50C92866862EB9B0EB2888EB16204 /* SwiftLiteKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2291A9397F6CDC86FAD971C06FC3337 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD02AE36922032FA162DB5090EA57FE1 /* String+Extension.swift */; };
+		E715743498ECB5B8A94719913A200E52 /* SwiftLiteKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B60F0A68B1F3BA2A32F6306BB89DB85 /* SwiftLiteKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F69FFC3586C6DC01F76E670A83B0B409 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,26 +31,27 @@
 /* Begin PBXFileReference section */
 		0BA8F6B559092314620870B0585F8FDF /* Pods-SwiftLiteKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftLiteKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		22E4FB59989F868A46E314788F656227 /* Pods-SwiftLiteKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftLiteKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		27163928EF7A6FC2D567193A5F7F260B /* Codable+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Codable+Extension.swift"; path = "SwiftLiteKit/Classes/Codable+Extension.swift"; sourceTree = "<group>"; };
+		362BBF08BEA1640F8A2FE678150BE520 /* SwiftLiteKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLiteKit-prefix.pch"; sourceTree = "<group>"; };
 		38E9043BA976EED1F1C3D884C7C5DE10 /* Pods-SwiftLiteKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftLiteKit_Example-dummy.m"; sourceTree = "<group>"; };
+		5B60F0A68B1F3BA2A32F6306BB89DB85 /* SwiftLiteKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLiteKit-umbrella.h"; sourceTree = "<group>"; };
+		5C3C425B79639681A83B6AC3836ED80E /* SwiftLiteKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLiteKit.xcconfig; sourceTree = "<group>"; };
 		5FCBADEBFC45E208F252ECCEDEF0A637 /* SwiftLiteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftLiteKit.framework; path = SwiftLiteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6685838CA6463A6C2F9F9E3F9975480F /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "SwiftLiteKit/Classes/String+Extension.swift"; sourceTree = "<group>"; };
-		6F71796E3B1B486469C39083E2DE09DF /* Range+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Range+Extension.swift"; path = "SwiftLiteKit/Classes/Range+Extension.swift"; sourceTree = "<group>"; };
-		78ABA29E84902092223E86500E5D6FBD /* SwiftLiteKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftLiteKit.modulemap; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E1F55C94B82E0ABAE3C98884EB8F8DA /* SwiftLiteKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftLiteKit.modulemap; sourceTree = "<group>"; };
 		AD15DD845CDAD4B91DF3839787318BC9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B15208971B91E47EC7932079780600AF /* Pods-SwiftLiteKit_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftLiteKit_Example-resources.sh"; sourceTree = "<group>"; };
-		B8D50C92866862EB9B0EB2888EB16204 /* SwiftLiteKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLiteKit-umbrella.h"; sourceTree = "<group>"; };
 		B94400B09EDBB6D2F73504C12EB25B8E /* Pods-SwiftLiteKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwiftLiteKit_Example.modulemap"; sourceTree = "<group>"; };
 		BB3BD6DA0867D2E376FA140B3671B7C5 /* Pods-SwiftLiteKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftLiteKit_Example-frameworks.sh"; sourceTree = "<group>"; };
+		BBB6179A4AC37F68BF8FDA95CC46ECC1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BC954D74CCEB7FCFF03214CC066BB3A4 /* Range+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Range+Extension.swift"; path = "SwiftLiteKit/Classes/Range+Extension.swift"; sourceTree = "<group>"; };
 		CA8E521646E61407ED347E8282E6E3AF /* Pods-SwiftLiteKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftLiteKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		CBAE5391113255FC1D9D0F111D97D1CB /* SwiftLiteKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftLiteKit-dummy.m"; sourceTree = "<group>"; };
 		CC09A3BA8E567811DA7C8E58458FA298 /* Pods-SwiftLiteKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftLiteKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		CF7A7DAA21EAB39D54BA73696C6A5BD2 /* SwiftLiteKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftLiteKit-prefix.pch"; sourceTree = "<group>"; };
-		DF5FD4066959464299660018135EEC28 /* SwiftLiteKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLiteKit.xcconfig; sourceTree = "<group>"; };
+		CD02AE36922032FA162DB5090EA57FE1 /* String+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "SwiftLiteKit/Classes/String+Extension.swift"; sourceTree = "<group>"; };
+		D737E29FD76436BDF76EDA027EC6D73E /* SwiftLiteKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftLiteKit-dummy.m"; sourceTree = "<group>"; };
 		EEB740553388D4286B4EA52344722DFB /* Pods-SwiftLiteKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftLiteKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		F440804B055D291040615FF4474F0C63 /* Pods_SwiftLiteKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftLiteKit_Example.framework; path = "Pods-SwiftLiteKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5D053B6D13C7C16D0943EA0E8D62F82 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,48 +83,35 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F94FDA3601CFD6D7C5326A62C9135C6 /* Development Pods */ = {
+		289D0D63B90ACD7375D1F8C89B0D7A6E /* SwiftLiteKit */ = {
 			isa = PBXGroup;
 			children = (
-				8DCE010053636B488C2013855CC81DF7 /* SwiftLiteKit */,
+				27163928EF7A6FC2D567193A5F7F260B /* Codable+Extension.swift */,
+				BC954D74CCEB7FCFF03214CC066BB3A4 /* Range+Extension.swift */,
+				CD02AE36922032FA162DB5090EA57FE1 /* String+Extension.swift */,
+				C99776E6BD885E5C7B8A95473D29C7CF /* Support Files */,
 			);
-			name = "Development Pods";
+			name = SwiftLiteKit;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				2F94FDA3601CFD6D7C5326A62C9135C6 /* Development Pods */,
+				B40EDFCF402CCA153A3A01B112E6483B /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				2358C75359BC0AD9481BD6A9C17B4143 /* Products */,
 				BB88C4C4BD32A6D54ADB7BC90562A132 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		8DCE010053636B488C2013855CC81DF7 /* SwiftLiteKit */ = {
+		B40EDFCF402CCA153A3A01B112E6483B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6F71796E3B1B486469C39083E2DE09DF /* Range+Extension.swift */,
-				6685838CA6463A6C2F9F9E3F9975480F /* String+Extension.swift */,
-				97A73929A1FD8F359CCF3BEB42019E1E /* Support Files */,
+				289D0D63B90ACD7375D1F8C89B0D7A6E /* SwiftLiteKit */,
 			);
-			name = SwiftLiteKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		97A73929A1FD8F359CCF3BEB42019E1E /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				F5D053B6D13C7C16D0943EA0E8D62F82 /* Info.plist */,
-				78ABA29E84902092223E86500E5D6FBD /* SwiftLiteKit.modulemap */,
-				DF5FD4066959464299660018135EEC28 /* SwiftLiteKit.xcconfig */,
-				CBAE5391113255FC1D9D0F111D97D1CB /* SwiftLiteKit-dummy.m */,
-				CF7A7DAA21EAB39D54BA73696C6A5BD2 /* SwiftLiteKit-prefix.pch */,
-				B8D50C92866862EB9B0EB2888EB16204 /* SwiftLiteKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/SwiftLiteKit";
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		BB88C4C4BD32A6D54ADB7BC90562A132 /* Targets Support Files */ = {
@@ -139,6 +128,20 @@
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C99776E6BD885E5C7B8A95473D29C7CF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBB6179A4AC37F68BF8FDA95CC46ECC1 /* Info.plist */,
+				9E1F55C94B82E0ABAE3C98884EB8F8DA /* SwiftLiteKit.modulemap */,
+				5C3C425B79639681A83B6AC3836ED80E /* SwiftLiteKit.xcconfig */,
+				D737E29FD76436BDF76EDA027EC6D73E /* SwiftLiteKit-dummy.m */,
+				362BBF08BEA1640F8A2FE678150BE520 /* SwiftLiteKit-prefix.pch */,
+				5B60F0A68B1F3BA2A32F6306BB89DB85 /* SwiftLiteKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SwiftLiteKit";
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -211,7 +214,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0328DD16F5D98F71DCC651565F1B282B /* Build configuration list for PBXNativeTarget "SwiftLiteKit" */;
 			buildPhases = (
-				4BA43029315460E9AA485118ED2E51F3 /* Sources */,
+				4D665634760C62AFA448F322876B4618 /* Sources */,
 				DD5CEA104F9E38F7BEA890BB786821E2 /* Frameworks */,
 				1AF79ABE369F7EA21D8A5874616B06A1 /* Headers */,
 			);
@@ -252,13 +255,14 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		4BA43029315460E9AA485118ED2E51F3 /* Sources */ = {
+		4D665634760C62AFA448F322876B4618 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E7E8F0C6678A1B6AA0C7400B15E8E8D /* Range+Extension.swift in Sources */,
-				DA914DA6B8FE575740C904299A82E986 /* String+Extension.swift in Sources */,
-				240C968BA7C9BE4E5840E806B07DE827 /* SwiftLiteKit-dummy.m in Sources */,
+				66A4AAB8ACBDD178E54B1CB7D9CB2EE7 /* Codable+Extension.swift in Sources */,
+				1DD5D3C1444A00EBF9ACC525BD489976 /* Range+Extension.swift in Sources */,
+				C2291A9397F6CDC86FAD971C06FC3337 /* String+Extension.swift in Sources */,
+				8553D86E70E572119DE8B81206F29DF4 /* SwiftLiteKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +288,7 @@
 /* Begin XCBuildConfiguration section */
 		43D86C7DAB1E019CD39535D3DDCD4DB6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5FD4066959464299660018135EEC28 /* SwiftLiteKit.xcconfig */;
+			baseConfigurationReference = 5C3C425B79639681A83B6AC3836ED80E /* SwiftLiteKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -489,7 +493,7 @@
 		};
 		F5294DD1448AC5B157A228423343BB23 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF5FD4066959464299660018135EEC28 /* SwiftLiteKit.xcconfig */;
+			baseConfigurationReference = 5C3C425B79639681A83B6AC3836ED80E /* SwiftLiteKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
