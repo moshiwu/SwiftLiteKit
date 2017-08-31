@@ -30,10 +30,16 @@ class ViewController: UIViewController {
         let range9: ClosedRange<Int> = 1...5
         
         print(str.substring(with: range6))
-        print(str.substring(with: range7))
-        print(str.substring(with: range8))
+        
+        #if swift(>=3.2)
+            print(str.substring(with: range7))
+            print(str.substring(with: range8))
+        #endif
         print(str.substring(with: range9))
         print(str)
+        
+        print(str.substring(with: 1..<5))
+        print(str.substring(with: 1...5))
         
         let b = str.substring(to: 5)
         print(str)

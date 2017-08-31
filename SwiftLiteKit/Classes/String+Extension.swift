@@ -13,17 +13,23 @@ extension String {
     }
     
     public func substring(from: Int) -> String {
-        return (self as NSString).substring(with: NSMakeRange(from, self.count - from))
+        return (self as NSString).substring(with: NSMakeRange(from, self.characters.count - from))
     }
     
     public func substring(with: NSRange) -> String {
         return (self as NSString).substring(with: with)
         
     }
+    
     public func substring(with: Range<Int>) -> String {
         return self.substring(with: with.toNSRange())
     }
     
+    public func substring(with: ClosedRange<Int>) -> String {
+        return self.substring(with: with.toNSRange())
+    }
+    
+    #if swift(>=3.2)
     public func substring(with: CountableRange<Int>) -> String {
         return self.substring(with: with.toNSRange())
     }
@@ -31,8 +37,5 @@ extension String {
     public func substring(with: CountableClosedRange<Int>) -> String {
         return self.substring(with: with.toNSRange())
     }
-    
-    public func substring(with: ClosedRange<Int>) -> String {
-        return self.substring(with: with.toNSRange())
-    }
+    #endif
 }

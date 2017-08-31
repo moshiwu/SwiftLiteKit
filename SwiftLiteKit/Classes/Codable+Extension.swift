@@ -7,12 +7,12 @@
 
 import Foundation
 
-//#if swift(>=4)
-
+#if swift(>=3.2)
+    
 extension Decodable where Self: Encodable {
     static var encoder: JSONEncoder { return JSONEncoder() }
     static var decoder: JSONDecoder { return JSONDecoder() }
-
+    
     public var jsonString: String? {
         do {
             let jsonData = try Self.encoder.encode(self)
@@ -21,7 +21,7 @@ extension Decodable where Self: Encodable {
             return nil
         }
     }
-
+    
     public static func modelWithJSON(json: String) -> Self? {
         do {
             guard let jsonData = json.data(using: .utf8) else { return nil }
@@ -30,9 +30,8 @@ extension Decodable where Self: Encodable {
         } catch {
             return nil
         }
-
+        
     }
 }
-
-//#endif
-
+    
+#endif

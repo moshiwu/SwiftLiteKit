@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SwiftLiteKit'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Some extension for swift in my work.'
 
 # This description is used to generate tags and improve search results.
