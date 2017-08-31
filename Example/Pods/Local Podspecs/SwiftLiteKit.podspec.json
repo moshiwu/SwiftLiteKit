@@ -1,6 +1,6 @@
 {
   "name": "SwiftLiteKit",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "summary": "Some extension for swift in my work.",
   "description": "Some extension for swift in my work...",
   "homepage": "https://github.com/moshiwu/SwiftLiteKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/moshiwu/SwiftLiteKit.git",
-    "tag": "0.1.0"
+    "tag": "0.2.1"
   },
   "platforms": {
     "ios": "8.0"

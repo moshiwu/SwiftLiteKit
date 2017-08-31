@@ -1,5 +1,5 @@
 PODS:
-  - SwiftLiteKit (0.1.0)
+  - SwiftLiteKit (0.2.1)
 
 DEPENDENCIES:
   - SwiftLiteKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  SwiftLiteKit: 2484a5b019a330dcc4b716dbb31853f01006ffbf
+  SwiftLiteKit: c280a2b8fc3fd564ebda1d63a6afa594cd2baf24
 
 PODFILE CHECKSUM: 2a9ed7333b9aebae91e21f8538fd77581733e290
 
