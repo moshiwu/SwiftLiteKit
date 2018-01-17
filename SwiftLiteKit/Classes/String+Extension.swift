@@ -62,7 +62,6 @@ extension String {
     public func substring(with: PartialRangeThrough<Int>) -> String {
         return self.substring(to: with.upperBound + 1)
     }
-    
     #endif
 }
 
@@ -95,4 +94,19 @@ extension String {
     @available(swift 4)
     public subscript(r: PartialRangeThrough<Int>) -> String { return self.substring(with: r) }
     #endif
+}
+
+extension String
+{
+    public func charValue() -> UnsafePointer<Int8>?
+    {
+        return (self as NSString).utf8String
+    }
+    
+    public func mutableCharValue() -> UnsafeMutablePointer<Int8>?
+    {
+        let utf8Pointer = (self as NSString).utf8String
+        let buffer = UnsafeMutablePointer<Int8>(mutating: utf8Pointer)
+        return buffer
+    }
 }

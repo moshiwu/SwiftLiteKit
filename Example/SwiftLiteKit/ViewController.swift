@@ -15,13 +15,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // MARK: - Substring with Range
-        testSubstringWithRange()
+        //        testSubstringWithRange()
         
         // MARK: - transform json to model
-        testCodable()
+        //        testCodable()
         
         // MARK: - subdata extension
-        testSubdata()
+        //        testSubdata()
+        
+        // MARK: - Dictionary extension
+        testDictionary()
+        
+        
+        
     }
     
     func testSubstringWithRange() {
@@ -99,5 +105,25 @@ class ViewController: UIViewController {
         data[3...4].forEach { print("A \($0)") }
         data[3..<3].forEach { print("B \($0)") }
         data[3..<4].forEach { print("C \($0)") }
+        
+        print("\(data as! NSData)")
+    }
+    
+    func testDictionary() {
+        var dict1 = ["first": "xiaoming", "second": "xiaohua"]
+        var dict2 = ["first": "xiaoming-2", "second": "xiaohua-2"]
+        
+        //        dict1.merge(dict2)
+        
+        //        dict1.merge(dict2) { + }
+        //        print(dict1)
+        
+        dict1.merge(dict1, uniquingKeysWith: +)
+        
+        var s1: String = "1"
+        var s2 = "2"
+        
+        print(s1 + s2)
+        
     }
 }
