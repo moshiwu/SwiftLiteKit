@@ -21,7 +21,6 @@ extension String {
     @available(swift 3)
     public func substring(with: NSRange) -> String {
         return (self as NSString).substring(with: with)
-        
     }
     
     @available(swift 3)
@@ -66,8 +65,9 @@ extension String {
 }
 
 extension String {
-    
+
     // MARK: - subscript for swift 3.2 range
+    
     @available(swift 3)
     public subscript(r: Range<Int>) -> String { return self.substring(with: r) }
     
@@ -75,7 +75,9 @@ extension String {
     public subscript(r: ClosedRange<Int>) -> String { return self.substring(with: r) }
     
     #if swift(>=3.2)
+    
     // MARK: - subscript for swift 3.2 range
+    
     @available(swift 3.2)
     public subscript(r: CountableRange<Int>) -> String { return self.substring(with: r) }
     
@@ -84,7 +86,9 @@ extension String {
     #endif
     
     #if swift(>=4.0)
+    
     // MARK: - subscript for swift 4 range
+    
     @available(swift 4)
     public subscript(r: CountablePartialRangeFrom<Int>) -> String { return self.substring(with: r) }
     
@@ -96,17 +100,19 @@ extension String {
     #endif
 }
 
-extension String
-{
-    public func charValue() -> UnsafePointer<Int8>?
-    {
+extension String {
+    public func charValue() -> UnsafePointer<Int8>? {
         return (self as NSString).utf8String
     }
     
-    public func mutableCharValue() -> UnsafeMutablePointer<Int8>?
-    {
+    public func mutableCharValue() -> UnsafeMutablePointer<Int8>? {
         let utf8Pointer = (self as NSString).utf8String
         let buffer = UnsafeMutablePointer<Int8>(mutating: utf8Pointer)
         return buffer
+    }
+    
+    public func unsafeMutableRawPointer() -> UnsafeMutableRawPointer? {
+        let value = NSString(string: self)
+        return Unmanaged<AnyObject>.passUnretained(value as AnyObject).toOpaque()
     }
 }
