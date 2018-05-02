@@ -101,6 +101,36 @@ extension String {
 }
 
 extension String {
+    /// 国际化字符串
+    public var local: String { return NSLocalizedString(self, comment: self) }
+    
+    /// utf data
+    public var utfData: Data? {
+        return self.data(using: .utf8)
+    }
+    
+    /// html attribute string
+    public var htmlAttributedString: NSAttributedString? {
+        guard let data = self.utfData else {
+            return nil
+        }
+        do {
+            return try NSAttributedString(data: data,
+                                          options: [
+                                              NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html,
+                                              NSAttributedString.DocumentReadingOptionKey.characterEncoding: String.Encoding.utf8.rawValue
+                                          ],
+                                          documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+    
+    /// 去掉所有空格
+    public func removeBlank() -> String {
+        return (self as NSString).replacingOccurrences(of: " ", with: "")
+    }
+    
     public func charValue() -> UnsafePointer<Int8>? {
         return (self as NSString).utf8String
     }
@@ -114,5 +144,9 @@ extension String {
     public func unsafeMutableRawPointer() -> UnsafeMutableRawPointer? {
         let value = NSString(string: self)
         return Unmanaged<AnyObject>.passUnretained(value as AnyObject).toOpaque()
+    }
+    
+    public func join(url: String? ...) -> String {
+        return self + (self.hasSuffix("/") ? "" : "/") + url.compactMap { $0 }.joined(separator: "/")
     }
 }

@@ -17,11 +17,15 @@ protocol PointerPrinter {
 }
 
 extension PointerPrinter {
+    // default implementation
     public var pointer: String {
         return Unmanaged<AnyObject>.passUnretained(self as AnyObject).toOpaque().debugDescription
     }
 }
 
-extension NSObject: PointerPrinter {
-
+extension SwiftLiteKit: PointerPrinter {
+    // change implementation
+    public var pointer: String {
+        return Unmanaged<AnyObject>.passUnretained(self.base as AnyObject).toOpaque().debugDescription
+    }
 }
