@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - 字符串截取
+
 extension String {
     @available(swift 3)
     public func substring(to: Int) -> String {
@@ -64,9 +66,11 @@ extension String {
     #endif
 }
 
+// MARK: - Range下标
+
 extension String {
 
-    // MARK: - subscript for swift 3.2 range
+    // MARK: subscript for swift 3.2 range
     
     @available(swift 3)
     public subscript(r: Range<Int>) -> String { return self.substring(with: r) }
@@ -76,7 +80,7 @@ extension String {
     
     #if swift(>=3.2)
     
-    // MARK: - subscript for swift 3.2 range
+    // MARK: subscript for swift 3.2 range
     
     @available(swift 3.2)
     public subscript(r: CountableRange<Int>) -> String { return self.substring(with: r) }
@@ -87,7 +91,7 @@ extension String {
     
     #if swift(>=4.0)
     
-    // MARK: - subscript for swift 4 range
+    // MARK: subscript for swift 4 range
     
     @available(swift 4)
     public subscript(r: CountablePartialRangeFrom<Int>) -> String { return self.substring(with: r) }
@@ -99,6 +103,8 @@ extension String {
     public subscript(r: PartialRangeThrough<Int>) -> String { return self.substring(with: r) }
     #endif
 }
+
+// MARK: - 简便方法
 
 extension String {
     /// 国际化字符串
@@ -131,6 +137,14 @@ extension String {
         return (self as NSString).replacingOccurrences(of: " ", with: "")
     }
     
+    public func join(url: String? ...) -> String {
+        return self + (self.hasSuffix("/") ? "" : "/") + url.compactMap { $0 }.joined(separator: "/")
+    }
+}
+
+// MARK: - 指针操作
+
+extension String {
     public func charValue() -> UnsafePointer<Int8>? {
         return (self as NSString).utf8String
     }
@@ -145,8 +159,17 @@ extension String {
         let value = NSString(string: self)
         return Unmanaged<AnyObject>.passUnretained(value as AnyObject).toOpaque()
     }
+}
+
+// MARK: - 正则表达式验证
+
+extension String {
+    public func isValidate(with regex: String, options: NSRegularExpression.Options = []) -> Bool {
+        guard let pattern = try? NSRegularExpression(pattern: regex, options: options) else { return false }
+        return pattern.numberOfMatches(in: self, options: [], range: NSRange(location: 0, length: self.count)) > 0
+    }
     
-    public func join(url: String? ...) -> String {
-        return self + (self.hasSuffix("/") ? "" : "/") + url.compactMap { $0 }.joined(separator: "/")
+    public func isValidPhoneNumber() -> Bool {
+        return self.isValidate(with: "^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(18[0,0-9]))\\d{8}$", options: [])
     }
 }

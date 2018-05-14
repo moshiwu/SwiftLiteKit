@@ -12,7 +12,7 @@
 //      class A {}
 //      extension A: PointerPrinter {}
 //      print(a1.pointer)
-protocol PointerPrinter {
+public protocol PointerPrinter {
     var pointer: String { get }
 }
 
