@@ -14,15 +14,15 @@ extension Range where Bound == Int {
 }
 
 extension CountableRange where Bound == Int {
-    public func toNSRange() -> NSRange {
-        return NSMakeRange(self.lowerBound, self.upperBound - self.lowerBound)
-    }
+//    public func toNSRange() -> NSRange {
+//        return NSMakeRange(self.lowerBound, self.upperBound - self.lowerBound)
+//    }
 }
 
 extension CountableClosedRange where Bound == Int {
-    public func toNSRange() -> NSRange {
-        return NSMakeRange(self.lowerBound, self.upperBound + 1 - self.lowerBound)
-    }
+//    public func toNSRange() -> NSRange {
+//        return NSMakeRange(self.lowerBound, self.upperBound + 1 - self.lowerBound)
+//    }
 }
 
 extension ClosedRange where Bound == Int {

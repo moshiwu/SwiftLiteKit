@@ -36,15 +36,15 @@ extension String {
     }
     
     #if swift(>=3.2)
-    @available(swift 3.2)
-    public func substring(with: CountableRange<Int>) -> String {
-        return self.substring(with: with.toNSRange())
-    }
-    
-    @available(swift 3.2)
-    public func substring(with: CountableClosedRange<Int>) -> String {
-        return self.substring(with: with.toNSRange())
-    }
+//    @available(swift 3.2)
+//    public func substring(with: CountableRange<Int>) -> String {
+//        return self.substring(with: with.toNSRange())
+//    }
+//
+//    @available(swift 3.2)
+//    public func substring(with: CountableClosedRange<Int>) -> String {
+//        return self.substring(with: with.toNSRange())
+//    }
     
     #endif
     
@@ -82,11 +82,11 @@ extension String {
     
     // MARK: subscript for swift 3.2 range
     
-    @available(swift 3.2)
-    public subscript(r: CountableRange<Int>) -> String { return self.substring(with: r) }
-    
-    @available(swift 3.2)
-    public subscript(r: CountableClosedRange<Int>) -> String { return self.substring(with: r) }
+//    @available(swift 3.2)
+//    public subscript(r: CountableRange<Int>) -> String { return self.substring(with: r) }
+//    
+//    @available(swift 3.2)
+//    public subscript(r: CountableClosedRange<Int>) -> String { return self.substring(with: r) }
     #endif
     
     #if swift(>=4.0)
