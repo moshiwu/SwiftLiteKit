@@ -84,7 +84,7 @@ extension String {
     
 //    @available(swift 3.2)
 //    public subscript(r: CountableRange<Int>) -> String { return self.substring(with: r) }
-//    
+//
 //    @available(swift 3.2)
 //    public subscript(r: CountableClosedRange<Int>) -> String { return self.substring(with: r) }
     #endif
@@ -169,7 +169,38 @@ extension String {
         return pattern.numberOfMatches(in: self, options: [], range: NSRange(location: 0, length: self.count)) > 0
     }
     
+    /// 验证是否电话号码
     public func isValidPhoneNumber() -> Bool {
         return self.isValidate(with: "^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(18[0,0-9]))\\d{8}$", options: [])
+    }
+    
+    /// 数字
+    public func isValidNumber() -> Bool {
+        return self.isValidate(with: "^[0-9]*$")
+    }
+    
+    /// 数字，限制固定长度
+    public func isValidNumber(limit: Int) -> Bool {
+        return self.isValidate(with: "^\\d{\(limit)}$")
+    }
+    
+    /// 数字，限制最大长度
+    public func isValidNumber(max: Int) -> Bool {
+        return self.isValidate(with: "^\\d{0,\(max)}$")
+    }
+    
+    /// 字母+数字，限制固定长度
+    public func isValidLetterAndNumber(limit n: Int) -> Bool {
+        return self.isValidate(with: "^[A-Za-z0-9]{\(n)}$", options: [])
+    }
+    
+    /// 字母+数字，限制最大长度
+    public func isValidLetterAndNumber(max n: Int) -> Bool {
+        return self.isValidate(with: "^[A-Za-z0-9]{0,\(n)}$", options: [])
+    }
+    
+    /// 是否包含HTML标签，效果存疑
+    public func isValidHTML() -> Bool {
+        return self.isValidate(with: "<(S*?)[^>]*>.*?|<.*? />")
     }
 }
