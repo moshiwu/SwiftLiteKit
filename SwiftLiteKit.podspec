@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftLiteKit'
-    s.version          = '0.6.1'
+    s.version          = '0.7.0'
     s.summary          = 'Some extension for swift in my work.'
     
     # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
     s.author           = { 'moshiwu' => '183795044@qq.com' }
     s.source           = { :git => 'https://github.com/moshiwu/SwiftLiteKit.git', :tag => s.version.to_s }
     
-    s.ios.deployment_target = '8.0'
+    s.ios.deployment_target = '10.0'
     
     s.source_files = 'SwiftLiteKit/Classes/*.swift'
     
