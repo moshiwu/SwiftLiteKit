@@ -4,8 +4,9 @@
 //
 //  Created by 莫锹文 on 2017/9/1.
 //
+import UIKit
 
-extension UIView: SwiftLiteKitCompatible {}
+//extension UIView: SwiftLiteKitCompatible {}
 
 extension SwiftLiteKit where Base: UIView
 {

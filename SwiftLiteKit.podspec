@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftLiteKit'
-    s.version          = '0.7.0'
+    s.version          = '0.7.1'
     s.summary          = 'Some extension for swift in my work.'
     
     # This description is used to generate tags and improve search results.
@@ -28,32 +28,35 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/moshiwu/SwiftLiteKit.git', :tag => s.version.to_s }
     
     s.ios.deployment_target = '10.0'
+    s.swift_version = '4.1'
     
-    s.source_files = 'SwiftLiteKit/Classes/*.swift'
+#    s.source_files = 'SwiftLiteKit/Classes/**/*.swift'
+
+    s.default_subspec = 'Core'
+    
+    s.subspec 'Core' do |sp|
+        sp.source_files = 'SwiftLiteKit/Classes/Core/**/*.swift'
+    end
     
     s.subspec 'Class' do |sp|
         sp.source_files = 'SwiftLiteKit/Classes/Class/**/*.swift'
+        sp.dependency 'SwiftLiteKit/Core'
     end
-    
+
     s.subspec 'Struct' do |sp|
         sp.source_files = 'SwiftLiteKit/Classes/Struct/**/*.swift'
+        sp.dependency 'SwiftLiteKit/Core'
     end
-    
+
     s.subspec 'Protocol' do |sp|
         sp.source_files = 'SwiftLiteKit/Classes/Protocol/**/*.swift'
+        sp.dependency 'SwiftLiteKit/Core'
     end
-    s.subspec 'Other' do |sp|
-        sp.source_files = 'SwiftLiteKit/Classes/Other/**/*.swift'
-    end
-    
-    
-    
+
     # s.resource_bundles = {
     #   'SwiftLiteKit' => ['SwiftLiteKit/Assets/*.png']
     # }
     
-    # s.public_header_files = 'Pod/Classes/**/*.h'
-    # s.frameworks = 'UIKit', 'MapKit'
-    # s.dependency 'AFNetworking', '~> 2.3'
+    s.frameworks = 'UIKit'
 end
 

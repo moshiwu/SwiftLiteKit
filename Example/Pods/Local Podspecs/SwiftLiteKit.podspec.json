@@ -1,6 +1,6 @@
 {
   "name": "SwiftLiteKit",
-  "version": "0.5.0",
+  "version": "0.7.1",
   "summary": "Some extension for swift in my work.",
   "description": "Some extension for swift in my work...",
   "homepage": "https://github.com/moshiwu/SwiftLiteKit",
@@ -13,10 +13,45 @@
   },
   "source": {
     "git": "https://github.com/moshiwu/SwiftLiteKit.git",
-    "tag": "0.5.0"
+    "tag": "0.7.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "SwiftLiteKit/Classes/**/*"
+  "swift_version": "4.1",
+  "default_subspecs": "Core",
+  "frameworks": "UIKit",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "SwiftLiteKit/Classes/Core/**/*.swift"
+    },
+    {
+      "name": "Class",
+      "source_files": "SwiftLiteKit/Classes/Class/**/*.swift",
+      "dependencies": {
+        "SwiftLiteKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Struct",
+      "source_files": "SwiftLiteKit/Classes/Struct/**/*.swift",
+      "dependencies": {
+        "SwiftLiteKit/Core": [
+
+        ]
+      }
+    },
+    {
+      "name": "Protocol",
+      "source_files": "SwiftLiteKit/Classes/Protocol/**/*.swift",
+      "dependencies": {
+        "SwiftLiteKit/Core": [
+
+        ]
+      }
+    }
+  ]
 }

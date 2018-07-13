@@ -41,8 +41,8 @@ class ViewController: UIViewController {
         print(str.substring(with: range6))
         
         #if swift(>=3.2)
-            print(str.substring(with: range7))
-            print(str.substring(with: range8))
+//            print(str.substring(with: range7))
+//            print(str.substring(with: range8))
         #endif
         print(str.substring(with: range9))
         print(str)

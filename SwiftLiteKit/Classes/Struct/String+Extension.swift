@@ -17,7 +17,7 @@ extension String {
     
     @available(swift 3)
     public func substring(from: Int) -> String {
-        return (self as NSString).substring(with: NSMakeRange(from, self.characters.count - from))
+        return (self as NSString).substring(with: NSMakeRange(from, self.count - from))
     }
     
     @available(swift 3)

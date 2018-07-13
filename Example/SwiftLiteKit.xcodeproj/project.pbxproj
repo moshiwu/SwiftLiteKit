@@ -31,7 +31,7 @@
 		68B97ADDAB69EE59100B5F61 /* Pods_SwiftLiteKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftLiteKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		868D56A2603E36B17B1965B4 /* Pods-SwiftLiteKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLiteKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLiteKit_Example/Pods-SwiftLiteKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8FCE83E3F1D4D82D5BAE6031 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		C2C041890BB3170849995333 /* SwiftLiteKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = SwiftLiteKit.podspec; path = ../SwiftLiteKit.podspec; sourceTree = "<group>"; };
+		C2C041890BB3170849995333 /* SwiftLiteKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = SwiftLiteKit.podspec; path = ../SwiftLiteKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D2133F6C133876D2A902D62F /* Pods-SwiftLiteKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLiteKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLiteKit_Tests/Pods-SwiftLiteKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EB1DC16F118D22B2555BF81B /* Pods-SwiftLiteKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftLiteKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftLiteKit_Example/Pods-SwiftLiteKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,7 +132,6 @@
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
 				48653544AB334B86045FD585 /* [CP] Embed Pods Frameworks */,
-				25C8FB277A1C620E57F10B70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -192,21 +191,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		25C8FB277A1C620E57F10B70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftLiteKit_Example/Pods-SwiftLiteKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		48653544AB334B86045FD585 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,11 +356,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7827DZ9F2C;
 				INFOPLIST_FILE = SwiftLiteKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -387,11 +372,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7827DZ9F2C;
 				INFOPLIST_FILE = SwiftLiteKit/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

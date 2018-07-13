@@ -5,7 +5,7 @@
 //  Created by 莫锹文 on 2018/4/16.
 //
 
-@_exported import UIKit
+import UIKit
 
 /// 避免冲突用
 public struct SwiftLiteKit<Base> {
