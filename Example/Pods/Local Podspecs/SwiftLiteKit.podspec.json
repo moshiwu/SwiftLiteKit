@@ -19,7 +19,12 @@
     "ios": "10.0"
   },
   "swift_version": "4.1",
-  "default_subspecs": "Core",
+  "default_subspecs": [
+    "Core",
+    "Class",
+    "Struct",
+    "Protocol"
+  ],
   "frameworks": "UIKit",
   "subspecs": [
     {

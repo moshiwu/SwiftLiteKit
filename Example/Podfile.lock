@@ -1,7 +1,16 @@
 PODS:
   - SwiftLiteKit (0.7.1):
+    - SwiftLiteKit/Class (= 0.7.1)
     - SwiftLiteKit/Core (= 0.7.1)
+    - SwiftLiteKit/Protocol (= 0.7.1)
+    - SwiftLiteKit/Struct (= 0.7.1)
+  - SwiftLiteKit/Class (0.7.1):
+    - SwiftLiteKit/Core
   - SwiftLiteKit/Core (0.7.1)
+  - SwiftLiteKit/Protocol (0.7.1):
+    - SwiftLiteKit/Core
+  - SwiftLiteKit/Struct (0.7.1):
+    - SwiftLiteKit/Core
 
 DEPENDENCIES:
   - SwiftLiteKit (from `../`)
@@ -11,7 +20,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftLiteKit: 31b1757adb7a4329c0c14344af3dbc70d48ebe72
+  SwiftLiteKit: 21d104182564265a7375c9866b967fdd229221c7
 
 PODFILE CHECKSUM: 4ab52f88a447d03718e62a1fae498d715393cfd5
 
