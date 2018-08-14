@@ -126,6 +126,14 @@ extension String {
         }
         return FileManager.default.fileExists(atPath: self)
     }
+    
+    public var cgFloat: CGFloat {
+        var cgFloat: CGFloat = 0
+        if let doubleValue = Double(self) {
+            cgFloat = CGFloat(doubleValue)
+        }
+        return cgFloat
+    }
 }
 
 // MARK: - 指针操作
