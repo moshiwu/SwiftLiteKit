@@ -198,3 +198,40 @@ extension String {
         return self.isValidate(with: "<(S*?)[^>]*>.*?|<.*? />")
     }
 }
+
+extension NSString {
+    /// 验证是否电话号码
+    @objc public func isValidPhoneNumber() -> Bool {
+        return (self as String).isValidPhoneNumber()
+    }
+    
+    /// 数字
+    @objc public func isValidNumber() -> Bool {
+        return (self as String).isValidNumber()
+    }
+    
+    /// 数字，限制固定长度
+    @objc public func isValidNumber(limit: Int) -> Bool {
+        return (self as String).isValidNumber(limit: limit)
+    }
+    
+    /// 数字，限制最大长度
+    @objc public func isValidNumber(max: Int) -> Bool {
+        return (self as String).isValidNumber(max: max)
+    }
+    
+    /// 字母+数字，限制固定长度
+    @objc public func isValidLetterAndNumber(limit n: Int) -> Bool {
+        return (self as String).isValidLetterAndNumber(limit: n)
+    }
+    
+    /// 字母+数字，限制最大长度
+    @objc public func isValidLetterAndNumber(max n: Int) -> Bool {
+        return (self as String).isValidLetterAndNumber(max: n)
+    }
+    
+    /// 是否包含HTML标签，效果存疑
+    @objc public func isValidHTML() -> Bool {
+        return (self as String).isValidHTML()
+    }
+}
