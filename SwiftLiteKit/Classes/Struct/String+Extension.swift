@@ -118,6 +118,32 @@ extension String {
         return self + (self.hasSuffix("/") ? "" : "/") + url.compactMap { $0 }.joined(separator: "/")
     }
     
+    public var cgFloat: CGFloat {
+        var cgFloat: CGFloat = 0
+        if let doubleValue = Double(self) {
+            cgFloat = CGFloat(doubleValue)
+        }
+        return cgFloat
+    }
+}
+
+// MARK: - 文件Url操作
+
+extension String {
+    /// 文件大小
+    public var fileSize: UInt64 {
+        guard self.fileExists else { return 0 }
+        
+        do {
+            let dict = try FileManager.default.attributesOfItem(atPath: self) as NSDictionary
+            return dict.fileSize()
+        } catch {
+            return 0
+        }
+        
+        return 0
+    }
+    
     /// 判断文件是否存在，同时判断是否包含"file://"
     public var fileExists: Bool {
         let fileUrl = URL(fileURLWithPath: self)
@@ -127,12 +153,8 @@ extension String {
         return FileManager.default.fileExists(atPath: self)
     }
     
-    public var cgFloat: CGFloat {
-        var cgFloat: CGFloat = 0
-        if let doubleValue = Double(self) {
-            cgFloat = CGFloat(doubleValue)
-        }
-        return cgFloat
+    public var lastPathComponent: String {
+        return (self as NSString).lastPathComponent
     }
 }
 
