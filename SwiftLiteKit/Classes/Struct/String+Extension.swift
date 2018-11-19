@@ -108,6 +108,13 @@ extension String {
         }
     }
     
+    /// 移除第一个搜索到的字符串
+    public mutating func remove(_ value: String) -> String {
+        guard let range = self.range(of: value) else { return self }
+        self.removeSubrange(range)
+        return self
+    }
+    
     /// 去掉所有空格
     public func removeBlank() -> String {
         return (self as NSString).replacingOccurrences(of: " ", with: "")
@@ -155,6 +162,16 @@ extension String {
     
     public var lastPathComponent: String {
         return (self as NSString).lastPathComponent
+    }
+    
+    public func appendingPathComponent(_ value: String) -> String {
+        if (self.hasSuffix("/") && !value.hasPrefix("/")) || (!self.hasSuffix("/") && value.hasPrefix("/")) {
+            return self + value
+        } else if self.hasSuffix("/") && value.hasPrefix("/") {
+            return String(self.dropLast()) + value
+        } else {
+            return self + "/" + value
+        }
     }
 }
 
