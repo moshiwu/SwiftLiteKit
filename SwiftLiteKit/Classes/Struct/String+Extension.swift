@@ -165,7 +165,9 @@ extension String {
     }
     
     public func appendingPathComponent(_ value: String) -> String {
-        if (self.hasSuffix("/") && !value.hasPrefix("/")) || (!self.hasSuffix("/") && value.hasPrefix("/")) {
+        if value == "" {
+            return self
+        } else if (self.hasSuffix("/") && !value.hasPrefix("/")) || (!self.hasSuffix("/") && value.hasPrefix("/")) {
             return self + value
         } else if self.hasSuffix("/") && value.hasPrefix("/") {
             return String(self.dropLast()) + value
