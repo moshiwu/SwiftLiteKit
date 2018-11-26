@@ -108,11 +108,19 @@ extension String {
         }
     }
     
-    /// 移除第一个搜索到的字符串
-    public mutating func remove(_ value: String) -> String {
-        guard let range = self.range(of: value) else { return self }
+    /// 移除第一个搜索到的字符串，不返回值
+    public mutating func remove(_ value: String) -> Void {
+        guard let range = self.range(of: value) else { return }
         self.removeSubrange(range)
-        return self
+//        return self
+    }
+    
+    /// 移除第一个搜索到的字符串，返回结果
+    public func removed(_ value: String) -> String {
+        guard let range = self.range(of: value) else { return self }
+        var result = self
+        result.removeSubrange(range)
+        return result
     }
     
     /// 去掉所有空格
