@@ -155,8 +155,6 @@ extension String {
         } catch {
             return 0
         }
-        
-        return 0
     }
     
     /// 判断文件是否存在，同时判断是否包含"file://"
