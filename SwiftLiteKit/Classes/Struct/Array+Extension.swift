@@ -7,10 +7,8 @@
 
 import Foundation
 
-extension Array where Element: Equatable
-{
-    public mutating func remove(e: Element)
-    {
+extension Array where Element: Equatable {
+    public mutating func remove(e: Element) {
         guard self.contains(e) else { return }
 
         let index = self.index(of: e)!
