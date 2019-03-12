@@ -7,6 +7,8 @@
 
 import UIKit
 
+private let suffix = ["", "@3x.png", "@2x.png", ".png", "@3x.jpg", "@2x.jpg", ".jpg"]
+
 extension UIImage {
     /// 加载不在main bundle的一个便利方法
     ///
@@ -17,18 +19,20 @@ extension UIImage {
         let bundle = Bundle(for: module)
         self.init(named: name, in: bundle, compatibleWith: traitCollection)
     }
-    
-    /// 无缓存加载图片，注意这种用法每一个UIImage实例都要占用一份内存 (区别于UIImage(named:) 是使用缓存，相同名字的实例共享一份内存）
-    public convenience init?(withoutCache name: String) {
-        guard let path = Bundle.main.path(forResource: name, ofType: nil) else { return nil }
+
+    /// 无缓存加载图片，带简单的文件名检测，注意这种用法每一个UIImage实例都要占用一份内存 (区别于UIImage(named:) 是使用缓存，相同名字的实例共享一份内存）
+    public convenience init?(withoutCache name: String, bundle: Bundle = .main) {
+        guard let path = suffix.compactMap({ bundle.path(forResource: name + $0, ofType: nil) }).first else {
+            return nil
+        }
         self.init(contentsOfFile: path)
     }
-    
-    /// 无缓存加载图片，注意这种用法每一个UIImage实例都要占用一份内存 (区别于UIImage(named:) 是使用缓存，相同名字的实例共享一份内存）
+
+    /// 给OC用的版本，Main Bundle
     @objc public class func imageWithoutCache(_ name: String) -> UIImage? {
         return UIImage(withoutCache: name)
     }
-    
+
     /// 中心切片拉伸
     @objc public func centerSliced() -> UIImage? {
         // 设置端盖的值
@@ -43,7 +47,7 @@ extension UIImage {
         // 拉伸图片
         return self.resizableImage(withCapInsets: edgeInsets, resizingMode: mode)
     }
-    
+
     @objc public class func imageWithCenterSliced(_ name: String) -> UIImage? {
         return UIImage(named: name)?.centerSliced()
     }
