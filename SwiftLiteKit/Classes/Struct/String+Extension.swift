@@ -109,7 +109,7 @@ extension String {
     }
     
     /// 移除第一个搜索到的字符串，不返回值
-    public mutating func remove(_ value: String) -> Void {
+    public mutating func remove(_ value: String) {
         guard let range = self.range(of: value) else { return }
         self.removeSubrange(range)
 //        return self
@@ -180,6 +180,10 @@ extension String {
         } else {
             return self + "/" + value
         }
+    }
+    
+    public var deletingLastPathComponent: String {
+        return (self as NSString).deletingLastPathComponent
     }
 }
 
