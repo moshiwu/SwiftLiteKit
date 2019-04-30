@@ -216,7 +216,7 @@ extension String {
     
     /// 验证是否电话号码
     public func isValidPhoneNumber() -> Bool {
-        return self.isValidate(with: "^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(18[0,0-9]))\\d{8}$", options: [])
+        return self.isValidate(with: "^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(199)|(18[0,0-9]))\\d{8}$", options: [])
     }
     
     /// 数字
