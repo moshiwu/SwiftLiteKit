@@ -20,6 +20,16 @@ extension UIImage {
         self.init(named: name, in: bundle, compatibleWith: traitCollection)
     }
 
+    /// 加载不在main bundle的一个便利方法
+    ///
+    /// - Parameters:
+    ///   - bundleIdentifier: bundle的id，组件化时候一般是"org.cocoapods."+模组名
+    public convenience init?(named name: String?, at bundleIdentifier: String, compatibleWith traitCollection: UITraitCollection? = nil) {
+        guard let name = name else { return nil }
+        let bundle = Bundle(identifier: bundleIdentifier)
+        self.init(named: name, in: bundle, compatibleWith: traitCollection)
+    }
+    
     /// 无缓存加载图片，带简单的文件名检测，注意这种用法每一个UIImage实例都要占用一份内存 (区别于UIImage(named:) 是使用缓存，相同名字的实例共享一份内存）
     public convenience init?(withoutCache name: String, bundle: Bundle = .main) {
         guard let path = suffix.compactMap({ bundle.path(forResource: name + $0, ofType: nil) }).first else {
