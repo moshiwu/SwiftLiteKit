@@ -47,6 +47,8 @@ extension SwiftLiteKit where Base: UIView {
         base.viewWithTag(tag)?.removeFromSuperview()
 
         let shadowView = UIView(frame: base.bounds)
+        shadowView.isUserInteractionEnabled = false
+        shadowView.tag = tag
         shadowView.backgroundColor = foregroundColor // shadowView的背景就是整个阴影效果的前景
         shadowView.layer.shadowColor = color.cgColor
         shadowView.layer.shadowOffset = offset
