@@ -42,8 +42,7 @@ extension SwiftLiteKit where Base: UIView {
     public func createShadowView(foregroundColor: UIColor, color: UIColor, offset: CGSize, radius: CGFloat, rasterize: Bool = false, cornerRadius: CGFloat = 0.0) {
         base.layoutIfNeeded()
 
-        let tag = 8728376482343
-
+        let tag = 3847273
         base.viewWithTag(tag)?.removeFromSuperview()
 
         let shadowView = UIView(frame: base.bounds)
