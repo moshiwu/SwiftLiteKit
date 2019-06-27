@@ -165,6 +165,12 @@ extension String {
         return FileManager.default.fileExists(atPath: self)
     }
 
+    /// 文件夹内列表
+    public var contentsOfDirectory: [String] {
+        let list = try? FileManager.default.contentsOfDirectory(atPath: self)
+        return list ?? []
+    }
+
     /// 文件属性列表
     public var fileAttributes: [FileAttributeKey: Any] {
         let dict = try? FileManager.default.attributesOfItem(atPath: self)
