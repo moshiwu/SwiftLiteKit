@@ -21,5 +21,5 @@ public protocol SwiftLiteKitCompatible {
 }
 
 public extension SwiftLiteKitCompatible {
-    public var slk: SwiftLiteKit<Self> { return SwiftLiteKit(self) }
+    var slk: SwiftLiteKit<Self> { return SwiftLiteKit(self) }
 }
