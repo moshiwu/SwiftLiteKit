@@ -8,11 +8,25 @@ import UIKit
 
 // extension UIView: SwiftLiteKitCompatible {}
 
+// MARK: - View Display Index Control
+
 extension SwiftLiteKit where Base: UIView {
+    public func bringMeToFront() {
+        base.superview?.bringSubviewToFront(base)
+    }
+
+    public func sendMeToBack() {
+        base.superview?.sendSubviewToBack(base)
+    }
+
     public func addSubviews(_ views: [UIView]) {
         views.forEach { self.base.addSubview($0) }
     }
+}
 
+// MARK: - Debug Methods
+
+extension SwiftLiteKit where Base: UIView {
     public func _removeAllSubviews() {
         base.subviews.forEach { $0.removeFromSuperview() }
     }
@@ -25,7 +39,11 @@ extension SwiftLiteKit where Base: UIView {
         print("\(NSStringFromClass(view.classForCoder)) : \(view.frame)")
         view.subviews.forEach { printView(view: $0) }
     }
+}
 
+// MARK: - Corner And Shadow
+
+extension SwiftLiteKit where Base: UIView {
     /// 设置圆角，注意这种设圆角的方法会导致离屏渲染，不要大量使用
     public func setCornerRadius(value: CGFloat, borderWidth: CGFloat, borderColor: UIColor, backgroundColor: UIColor? = nil) {
         base.layer.cornerRadius = value
