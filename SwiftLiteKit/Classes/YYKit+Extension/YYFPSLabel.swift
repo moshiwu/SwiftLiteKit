@@ -84,7 +84,7 @@ extension YYFPSLabel {
     public static let shared = YYFPSLabel(frame: .zero)
 
     /// 默认显示，位于屏幕右上角
-    public func show() {
+    public func show(_ offset: CGPoint = CGPoint(x: -5, y: 5)) {
         guard let window = UIApplication.shared.keyWindow else { return }
 
         window.subviews.filter { $0 is YYFPSLabel }.forEach { $0.removeFromSuperview() }
@@ -93,7 +93,7 @@ extension YYFPSLabel {
         sizeToFit()
 
         window.addSubview(self)
-        right = UIScreen.main.bounds.width - 5
-        top = window.rootViewController?.topLayoutGuide.length ?? 0
+        right = UIScreen.main.bounds.width + offset.x
+        top = (window.rootViewController?.topLayoutGuide.length ?? 0) + offset.y
     }
 }
