@@ -56,7 +56,7 @@ extension SwiftLiteKit where Base: UIView {
     }
 
     /// 创建一个阴影View，本方法主要用于避免离屏渲染，默认不开启格栅化
-    ///   - rasterize: 格栅化，开启的话会使用缓存，但会产生离屏渲染
+    ///   - rasterize: 格栅化，开启的话会使用缓存，旨在于降低性能损失，但至少会触发一次离屏渲染
     public func createShadowView(foregroundColor: UIColor, color: UIColor, offset: CGSize, radius: CGFloat, rasterize: Bool = false, cornerRadius: CGFloat = 0.0) {
         base.layoutIfNeeded()
 
