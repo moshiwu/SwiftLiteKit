@@ -45,5 +45,12 @@ Pod::Spec.new do |s|
         sp.dependency 'SwiftLiteKit/Core'
     end
 
+    s.subspec 'YYKit+Extension' do |sp|
+      sp.source_files = 'SwiftLiteKit/Classes/YYKit+Extension/**/*.swift'
+      sp.dependency 'SwiftLiteKit/Core'
+      sp.dependency 'YYKit'
+    end
+
+    
 end
 
