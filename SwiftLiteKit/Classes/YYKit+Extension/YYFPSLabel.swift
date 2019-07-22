@@ -8,7 +8,7 @@
 import YYKit
 
 /// 摘自YYText的Demo
-public class YYFPSLabel: UILabel {
+@objc public class YYFPSLabel: UILabel {
     private var link: CADisplayLink!
     private var count: UInt = 0
     private var lastTime: TimeInterval = 0.0
@@ -81,10 +81,10 @@ public class YYFPSLabel: UILabel {
 }
 
 extension YYFPSLabel {
-    public static let shared = YYFPSLabel(frame: .zero)
+    @objc public static let shared = YYFPSLabel(frame: .zero)
 
     /// 默认显示，位于屏幕右上角
-    public func show(_ offset: CGPoint = CGPoint(x: -5, y: 5)) {
+    @objc public func show(_ offset: CGPoint = CGPoint(x: -5, y: 5)) {
         guard let window = UIApplication.shared.keyWindow else { return }
 
         window.subviews.filter { $0 is YYFPSLabel }.forEach { $0.removeFromSuperview() }
