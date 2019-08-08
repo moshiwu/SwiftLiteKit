@@ -8,10 +8,10 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwiftLiteKit'
-    s.version          = '0.9.2'
+    s.version          = '0.9.3'
     s.summary          = 'Some extension for swift in my work.'
     s.ios.deployment_target = '10.0'
-    s.swift_version = '4.2'
+    s.swift_version = '5.0'
 
     s.description      = <<-DESC
     Some extension for swift in my work...
