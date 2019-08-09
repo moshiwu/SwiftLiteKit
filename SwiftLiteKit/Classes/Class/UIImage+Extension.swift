@@ -62,24 +62,24 @@ extension UIImage {
         return UIImage(named: name)?.centerSliced()
     }
 
-    /// 创建一个圆角大小固定，可以拉伸的UIImage
+    /// 创建一个圆角大小固定，可以拉伸的UIImage，适用于不想切圆角，直接把图片置于顶层，形成圆角的视觉效果。可配合缓存使用节省开销
+    /// 注意cornerRadius需要是整数
     public class func resizebleCornerMaskImage(cornerRadius: CGFloat, byRoundingCorners corners: UIRectCorner = [.allCorners], cornerColor: UIColor = .white) -> UIImage? {
         let width = cornerRadius * 2 + 1
         let height = cornerRadius * 2 + 1
-        
-        let rect1 = CGRect(x: 0, y: 0, width: width, height: height)
-        let rect2 = CGRect(x: -1, y: -1, width: width + 2, height: height + 2)
-        
-        UIGraphicsBeginImageContextWithOptions(rect1.size, false, 0)
-        
-        let path1 = UIBezierPath(rect: rect1)
+
+        let rect = CGRect(x: 0, y: 0, width: width, height: height)
+
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
+
+        let path1 = UIBezierPath(rect: rect)
         cornerColor.setFill()
         path1.fill()
-        
-        let path2 = UIBezierPath(roundedRect: rect2, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
+
+        let path2 = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         cornerColor.setFill()
         path2.fill(with: .clear, alpha: 1)
-        
+
         let capInsets = UIEdgeInsets(top: cornerRadius, left: cornerRadius, bottom: cornerRadius, right: cornerRadius)
         return UIGraphicsGetImageFromCurrentImageContext()?.resizableImage(withCapInsets: capInsets, resizingMode: .stretch)
     }
