@@ -5,19 +5,16 @@
 //  Created by 莫锹文 on 2017/9/12.
 //
 
-import Foundation
-
 extension Array where Element: Equatable {
     public mutating func remove(e: Element) {
-        guard contains(e) else { return }
-
-        let index = self.index(of: e)!
-        remove(at: index)
+        if let index = self.firstIndex(of: e) {
+            remove(at: index)
+        }
     }
 
     public func next(for current: Element) -> Element? {
         guard
-            let index = self.index(of: current),
+            let index = self.firstIndex(of: current),
             self.count > index + 1
         else { return nil }
 
@@ -26,7 +23,7 @@ extension Array where Element: Equatable {
 
     public func previous(for current: Element) -> Element? {
         guard
-            let index = self.index(of: current),
+            let index = self.firstIndex(of: current),
             index - 1 >= 0
         else { return nil }
 
