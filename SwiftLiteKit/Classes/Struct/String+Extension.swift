@@ -124,7 +124,12 @@ extension String {
 
     /// 去掉所有空格
     public func removeBlank() -> String {
-        return (self as NSString).replacingOccurrences(of: " ", with: "")
+        return replacingOccurrences(of: " ", with: "")
+    }
+
+    /// 去掉首尾空格和回车
+    public func trimmingBlank() -> String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// url拼接
