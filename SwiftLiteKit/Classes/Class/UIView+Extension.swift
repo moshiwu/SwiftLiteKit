@@ -45,7 +45,7 @@ extension SwiftLiteKit where Base: UIView {
 
 extension SwiftLiteKit where Base: UIView {
     /// 设置圆角，注意这种设圆角的方法如果设置clipsToBounds=true会导致离屏渲染，不要大量使用
-    public func setCornerRadius(value: CGFloat, borderWidth: CGFloat, borderColor: UIColor, backgroundColor: UIColor? = nil, clipsToBounds: Bool = true) {
+    public func setCornerRadius(value: CGFloat, borderWidth: CGFloat = 0, borderColor: UIColor = .clear, backgroundColor: UIColor? = nil, clipsToBounds: Bool = true) {
         base.layer.cornerRadius = value
         base.layer.borderWidth = borderWidth
         base.layer.borderColor = borderColor.cgColor
