@@ -269,6 +269,11 @@ extension String {
     public func isValidHTML() -> Bool {
         return isValidate(with: "<(S*?)[^>]*>.*?|<.*? />")
     }
+
+    /// 是否网址URL
+    public func isValidURL() -> Bool {
+        return isValidate(with: "[a-zA-z]+://[^\\s]*")
+    }
 }
 
 extension NSString {
