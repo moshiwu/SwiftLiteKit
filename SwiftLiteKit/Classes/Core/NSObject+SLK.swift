@@ -1,8 +1,8 @@
 //
-//  NSObject+Extension.swift
+//  NSObject+SLK.swift
 //  SwiftLiteKit
 //
-//  Created by 莫锹文 on 2018/3/13.
+//  Created by 莫锹文 on 2019/10/22.
 //
 
 extension NSObject: SwiftLiteKitCompatible {}
@@ -20,23 +20,23 @@ extension SwiftLiteKit where Base: NSObject {
     // 方式一：String + 用本框架写的unsafeMutableRawPointer()  (String转成NSString，相同字符串的NSString的指针相同)
 
     public func getAssociate(with key: String) -> Any? {
-        return objc_getAssociatedObject(self.base, key._unsafeMutableRawPointer()!)
+        return objc_getAssociatedObject(base, key._unsafeMutableRawPointer()!)
     }
 
     public func setAssociate(value: Any?, key: String) {
-        objc_setAssociatedObject(self.base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        objc_setAssociatedObject(base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
     }
 
     public func setCopyAssociate(value: Any?, key: String) {
-        objc_setAssociatedObject(self.base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
+        objc_setAssociatedObject(base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_COPY_NONATOMIC)
     }
 
     public func setWeakAssociate(value: Any?, key: String) {
-        objc_setAssociatedObject(self.base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
+        objc_setAssociatedObject(base, key._unsafeMutableRawPointer()!, value, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
     }
 
     public func removeAssociates() {
-        objc_removeAssociatedObjects(self.base)
+        objc_removeAssociatedObjects(base)
     }
 
     // 方式二：

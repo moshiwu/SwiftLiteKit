@@ -9,45 +9,45 @@ import Foundation
 
 // MARK: - 字符串截取
 
-extension String {
+public extension String {
     @available(swift 3)
-    public func substring(to: Int) -> String {
+    func substring(to: Int) -> String {
         return (self as NSString).substring(with: NSMakeRange(0, to))
     }
 
     @available(swift 3)
-    public func substring(from: Int) -> String {
+    func substring(from: Int) -> String {
         return (self as NSString).substring(with: NSMakeRange(from, count - from))
     }
 
     @available(swift 3)
-    public func substring(with: NSRange) -> String {
+    func substring(with: NSRange) -> String {
         return (self as NSString).substring(with: with)
     }
 
     @available(swift 3)
-    public func substring(with: Range<Int>) -> String {
+    func substring(with: Range<Int>) -> String {
         return substring(with: with.toNSRange())
     }
 
     @available(swift 3)
-    public func substring(with: ClosedRange<Int>) -> String {
+    func substring(with: ClosedRange<Int>) -> String {
         return substring(with: with.toNSRange())
     }
 
     #if swift(>=4.0)
         @available(swift 4)
-        public func substring(with: CountablePartialRangeFrom<Int>) -> String {
+        func substring(with: CountablePartialRangeFrom<Int>) -> String {
             return substring(from: with.lowerBound)
         }
 
         @available(swift 4)
-        public func substring(with: PartialRangeUpTo<Int>) -> String {
+        func substring(with: PartialRangeUpTo<Int>) -> String {
             return substring(to: with.upperBound)
         }
 
         @available(swift 4)
-        public func substring(with: PartialRangeThrough<Int>) -> String {
+        func substring(with: PartialRangeThrough<Int>) -> String {
             return substring(to: with.upperBound + 1)
         }
     #endif
@@ -55,43 +55,43 @@ extension String {
 
 // MARK: - Range下标
 
-extension String {
+public extension String {
     // MARK: subscript for swift 3.2 range
 
     @available(swift 3)
-    public subscript(r: Range<Int>) -> String { return substring(with: r) }
+    subscript(r: Range<Int>) -> String { return substring(with: r) }
 
     @available(swift 3)
-    public subscript(r: ClosedRange<Int>) -> String { return substring(with: r) }
+    subscript(r: ClosedRange<Int>) -> String { return substring(with: r) }
 
     #if swift(>=4.0)
 
         // MARK: subscript for swift 4 range
 
         @available(swift 4)
-        public subscript(r: CountablePartialRangeFrom<Int>) -> String { return substring(with: r) }
+        subscript(r: CountablePartialRangeFrom<Int>) -> String { return substring(with: r) }
 
         @available(swift 4)
-        public subscript(r: PartialRangeUpTo<Int>) -> String { return substring(with: r) }
+        subscript(r: PartialRangeUpTo<Int>) -> String { return substring(with: r) }
 
         @available(swift 4)
-        public subscript(r: PartialRangeThrough<Int>) -> String { return substring(with: r) }
+        subscript(r: PartialRangeThrough<Int>) -> String { return substring(with: r) }
     #endif
 }
 
 // MARK: - 简便方法
 
-extension String {
+public extension String {
     /// 国际化字符串
-    public var local: String { return NSLocalizedString(self, comment: self) }
+    var local: String { return NSLocalizedString(self, comment: self) }
 
     /// utf data
-    public var utfData: Data? {
+    var utfData: Data? {
         return data(using: .utf8)
     }
 
     /// html attribute string
-    public var htmlAttributedString: NSAttributedString? {
+    var htmlAttributedString: NSAttributedString? {
         guard let data = self.utfData else {
             return nil
         }
@@ -108,14 +108,13 @@ extension String {
     }
 
     /// 移除第一个搜索到的字符串，不返回值
-    public mutating func remove(_ value: String) {
+    mutating func remove(_ value: String) {
         guard let range = self.range(of: value) else { return }
         removeSubrange(range)
-//        return self
     }
 
     /// 移除第一个搜索到的字符串，返回结果
-    public func removed(_ value: String) -> String {
+    func removed(_ value: String) -> String {
         guard let range = self.range(of: value) else { return self }
         var result = self
         result.removeSubrange(range)
@@ -123,46 +122,30 @@ extension String {
     }
 
     /// 去掉所有空格
-    public func removeBlank() -> String {
+    func removeBlank() -> String {
         return replacingOccurrences(of: " ", with: "")
     }
 
     /// 去掉首尾空格和回车
-    public func trimmingBlank() -> String {
+    func trimmingBlank() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// url拼接
-    public func join(url: String? ...) -> String {
+    func join(url: String? ...) -> String {
         return self + (hasSuffix("/") ? "" : "/") + url.compactMap { $0 }.joined(separator: "/")
     }
 
-    public var cgFloat: CGFloat {
-        var cgFloat: CGFloat = 0
-        if let doubleValue = Double(self) {
-            cgFloat = CGFloat(doubleValue)
-        }
-        return cgFloat
+    var cgFloat: CGFloat? {
+        return CGFloat(self)
     }
 }
 
-// MARK: - 文件Url操作
+// MARK: - 文件属性操作
 
-extension String {
-    /// 文件大小
-    public var fileSize: UInt64 {
-        guard fileExists else { return 0 }
-
-        do {
-            let dict = try FileManager.default.attributesOfItem(atPath: self) as NSDictionary
-            return dict.fileSize()
-        } catch {
-            return 0
-        }
-    }
-
+public extension String {
     /// 判断文件是否存在，同时判断是否包含"file://"
-    public var fileExists: Bool {
+    var fileExists: Bool {
         let fileUrl = URL(fileURLWithPath: self)
         if fileUrl.isFileURL {
             return FileManager.default.fileExists(atPath: fileUrl.path)
@@ -170,58 +153,109 @@ extension String {
         return FileManager.default.fileExists(atPath: self)
     }
 
-    /// 文件夹内列表
-    public var contentsOfDirectory: [String] {
+    /// 文件夹内子文件列表
+    var contentsOfDirectory: [String] {
         let list = try? FileManager.default.contentsOfDirectory(atPath: self)
         return list ?? []
     }
 
     /// 文件属性列表
-    public var fileAttributes: [FileAttributeKey: Any] {
+    var fileAttributes: [FileAttributeKey: Any] {
         let dict = try? FileManager.default.attributesOfItem(atPath: self)
         return dict ?? [:]
     }
 
+    /// 文件类型
+    var fileType: FileAttributeType {
+        return (fileAttributes[.type] as? FileAttributeType) ?? .typeUnknown
+    }
+
+    /// 文件大小
+    var fileSize: UInt64 {
+        return (fileAttributes[.size] as? UInt64) ?? 0
+    }
+
     /// 文件创建日期
-    public var fileCreateDate: Date? {
+    var fileCreateDate: Date? {
         return fileAttributes[.creationDate] as? Date
     }
 
-    public var lastPathComponent: String {
+    /// 文件修改日期
+    var fileModificationDate: Date? {
+        return fileAttributes[.modificationDate] as? Date
+    }
+}
+
+// MARK: - 文件Url操作
+
+public extension String {
+    var pathComponents: [String] {
+        return (self as NSString).pathComponents
+    }
+
+    var lastPathComponent: String {
         return (self as NSString).lastPathComponent
     }
 
-    public func appendingPathComponent(_ value: String) -> String {
-        if value == "" {
-            return self
-        } else if (hasSuffix("/") && !value.hasPrefix("/")) || (!hasSuffix("/") && value.hasPrefix("/")) {
-            return self + value
-        } else if hasSuffix("/"), value.hasPrefix("/") {
-            return String(dropLast()) + value
-        } else {
-            return self + "/" + value
-        }
+    var pathExtension: String {
+        return (self as NSString).pathExtension
     }
 
-    public var deletingLastPathComponent: String {
+    func appendingPathComponent(_ pathComponent: String, isDirectory: Bool) -> String {
+        return (self as NSString).appendingPathComponent(pathComponent) + (isDirectory ? "/" : "")
+    }
+
+    func appendingPathComponent(_ pathComponent: String) -> String {
+        return (self as NSString).appendingPathComponent(pathComponent)
+    }
+
+    func deletingLastPathComponent() -> String {
         return (self as NSString).deletingLastPathComponent
+    }
+
+    func appendingPathExtension(_ pathExtension: String) -> String {
+        return (self as NSString).appendingPathExtension(pathExtension) ?? self
+    }
+
+    func deletingPathExtension() -> String {
+        return (self as NSString).deletingPathExtension
+    }
+
+    mutating func appendPathComponent(_ pathComponent: String, isDirectory: Bool) {
+        self = (self as NSString).appendingPathComponent(pathComponent) + (isDirectory ? "/" : "")
+    }
+
+    mutating func appendPathComponent(_ pathComponent: String) {
+        self = (self as NSString).appendingPathComponent(pathComponent)
+    }
+
+    mutating func appendPathExtension(_ pathExtension: String) {
+        self = (self as NSString).appendingPathExtension(pathExtension) ?? self
+    }
+
+    mutating func deleteLastPathComponent() {
+        self = (self as NSString).deletingLastPathComponent
+    }
+
+    mutating func deletePathExtension() {
+        self = (self as NSString).deletingPathExtension
     }
 }
 
 // MARK: - 指针操作
 
-extension String {
-    public func charValue() -> UnsafePointer<Int8>? {
+public extension String {
+    func charValue() -> UnsafePointer<Int8>? {
         return (self as NSString).utf8String
     }
 
-    public func mutableCharValue() -> UnsafeMutablePointer<Int8>? {
+    func mutableCharValue() -> UnsafeMutablePointer<Int8>? {
         let utf8Pointer = (self as NSString).utf8String
         let buffer = UnsafeMutablePointer<Int8>(mutating: utf8Pointer)
         return buffer
     }
 
-    public func unsafeMutableRawPointer() -> UnsafeMutableRawPointer? {
+    func unsafeMutableRawPointer() -> UnsafeMutableRawPointer? {
         let value = NSString(string: self)
         return Unmanaged<AnyObject>.passUnretained(value as AnyObject).toOpaque()
     }
@@ -229,86 +263,101 @@ extension String {
 
 // MARK: - 正则表达式验证
 
-extension String {
-    public func isValidate(with regex: String, options: NSRegularExpression.Options = []) -> Bool {
+public extension String {
+    func isValidate(with regex: String, options: NSRegularExpression.Options = []) -> Bool {
         guard let pattern = try? NSRegularExpression(pattern: regex, options: options) else { return false }
         return pattern.numberOfMatches(in: self, options: [], range: NSRange(location: 0, length: count)) > 0
     }
 
     /// 验证是否电话号码
-    public func isValidPhoneNumber() -> Bool {
+    func isValidPhoneNumber() -> Bool {
         return isValidate(with: "^((13[0-9])|(147)|(15[^4,\\D])|(17[0-9])|(199)|(18[0,0-9]))\\d{8}$", options: [])
     }
 
     /// 数字
-    public func isValidNumber() -> Bool {
+    func isValidNumber() -> Bool {
         return isValidate(with: "^[0-9]*$")
     }
 
     /// 数字，限制固定长度
-    public func isValidNumber(limit: Int) -> Bool {
+    func isValidNumber(limit: Int) -> Bool {
         return isValidate(with: "^\\d{\(limit)}$")
     }
 
     /// 数字，限制最大长度
-    public func isValidNumber(max: Int) -> Bool {
+    func isValidNumber(max: Int) -> Bool {
         return isValidate(with: "^\\d{0,\(max)}$")
     }
 
     /// 字母+数字，限制固定长度
-    public func isValidLetterAndNumber(limit n: Int) -> Bool {
+    func isValidLetterAndNumber(limit n: Int) -> Bool {
         return isValidate(with: "^[A-Za-z0-9]{\(n)}$", options: [])
     }
 
     /// 字母+数字，限制最大长度
-    public func isValidLetterAndNumber(max n: Int) -> Bool {
+    func isValidLetterAndNumber(max n: Int) -> Bool {
         return isValidate(with: "^[A-Za-z0-9]{0,\(n)}$", options: [])
     }
 
     /// 是否包含HTML标签，效果存疑
-    public func isValidHTML() -> Bool {
+    func isValidHTML() -> Bool {
         return isValidate(with: "<(S*?)[^>]*>.*?|<.*? />")
     }
 
     /// 是否网址URL
-    public func isValidURL() -> Bool {
+    func isValidURL() -> Bool {
         return isValidate(with: "[a-zA-z]+://[^\\s]*")
     }
 }
 
-extension NSString {
+public extension NSString {
     /// 验证是否电话号码
-    @objc public func isValidPhoneNumber() -> Bool {
+    @objc func isValidPhoneNumber() -> Bool {
         return (self as String).isValidPhoneNumber()
     }
 
     /// 数字
-    @objc public func isValidNumber() -> Bool {
+    @objc func isValidNumber() -> Bool {
         return (self as String).isValidNumber()
     }
 
     /// 数字，限制固定长度
-    @objc public func isValidNumber(limit: Int) -> Bool {
+    @objc func isValidNumber(limit: Int) -> Bool {
         return (self as String).isValidNumber(limit: limit)
     }
 
     /// 数字，限制最大长度
-    @objc public func isValidNumber(max: Int) -> Bool {
+    @objc func isValidNumber(max: Int) -> Bool {
         return (self as String).isValidNumber(max: max)
     }
 
     /// 字母+数字，限制固定长度
-    @objc public func isValidLetterAndNumber(limit n: Int) -> Bool {
+    @objc func isValidLetterAndNumber(limit n: Int) -> Bool {
         return (self as String).isValidLetterAndNumber(limit: n)
     }
 
     /// 字母+数字，限制最大长度
-    @objc public func isValidLetterAndNumber(max n: Int) -> Bool {
+    @objc func isValidLetterAndNumber(max n: Int) -> Bool {
         return (self as String).isValidLetterAndNumber(max: n)
     }
 
     /// 是否包含HTML标签，效果存疑
-    @objc public func isValidHTML() -> Bool {
+    @objc func isValidHTML() -> Bool {
         return (self as String).isValidHTML()
+    }
+}
+
+// MARK: - Other
+
+public extension String {
+    // 将原始的url编码为合法的url
+    func urlEncoded() -> String {
+        let encodeUrlString = addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+
+    // 将编码后的url转换回原始的url
+    func urlDecoded() -> String {
+        return removingPercentEncoding ?? ""
     }
 }

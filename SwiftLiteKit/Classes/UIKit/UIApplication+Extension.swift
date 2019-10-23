@@ -7,18 +7,18 @@
 
 import UIKit
 
-extension UIApplication {
-    public func isAppStoreReceiptSandbox() -> Bool {
+public extension UIApplication {
+    func isAppStoreReceiptSandbox() -> Bool {
         let sign = Bundle.main.appStoreReceiptURL?.lastPathComponent
         return sign == "sandboxReceipt"
     }
 
-    public func hasEmbeddedMobileProvision() -> Bool {
+    func hasEmbeddedMobileProvision() -> Bool {
         let value = Bundle.main.path(forResource: "embedded", ofType: "mobileprovision")
         return value != nil
     }
 
-    public func isTestFlight() -> Bool {
+    func isTestFlight() -> Bool {
         return isAppStoreReceiptSandbox() && !hasEmbeddedMobileProvision()
     }
 }

@@ -20,3 +20,19 @@ public func <= (left: NSDecimalNumber, right: NSDecimalNumber) -> Bool {
 public func >= (left: NSDecimalNumber, right: NSDecimalNumber) -> Bool {
     return left.compare(right) != ComparisonResult.orderedAscending
 }
+
+public func + (left: NSDecimalNumber, right: NSDecimalNumber) -> NSDecimalNumber {
+    return left.adding(right)
+}
+
+public func - (left: NSDecimalNumber, right: NSDecimalNumber) -> NSDecimalNumber {
+    return left.subtracting(right)
+}
+
+public func * (left: NSDecimalNumber, right: NSDecimalNumber) -> NSDecimalNumber {
+    return left.multiplying(by: right)
+}
+
+public func / (left: NSDecimalNumber, right: NSDecimalNumber) -> NSDecimalNumber {
+    return left.dividing(by: right)
+}

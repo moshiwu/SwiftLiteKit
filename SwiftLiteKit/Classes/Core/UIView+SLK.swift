@@ -1,45 +1,11 @@
 //
-//  UIView+Extension.swift
+//  UIView+SLK.swift
 //  SwiftLiteKit
 //
-//  Created by 莫锹文 on 2017/9/1.
+//  Created by 莫锹文 on 2019/10/22.
 //
+
 import UIKit
-
-// extension UIView: SwiftLiteKitCompatible {}
-
-// MARK: - View Display Index Control
-
-extension SwiftLiteKit where Base: UIView {
-    public func bringMeToFront() {
-        base.superview?.bringSubviewToFront(base)
-    }
-
-    public func sendMeToBack() {
-        base.superview?.sendSubviewToBack(base)
-    }
-
-    public func addSubviews(_ views: [UIView]) {
-        views.forEach { self.base.addSubview($0) }
-    }
-}
-
-// MARK: - Debug Methods
-
-extension SwiftLiteKit where Base: UIView {
-    public func _removeAllSubviews() {
-        base.subviews.forEach { $0.removeFromSuperview() }
-    }
-
-    public func printAllMySubview() {
-        printView(view: base)
-    }
-
-    fileprivate func printView(view: UIView) {
-        print("\(NSStringFromClass(view.classForCoder)) : \(view.frame)")
-        view.subviews.forEach { printView(view: $0) }
-    }
-}
 
 // MARK: - Corner And Shadow
 

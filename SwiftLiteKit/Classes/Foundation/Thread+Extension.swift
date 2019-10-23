@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Thread {
-    public static var allThreadName: [String] {
+public extension Thread {
+    static var allThreadName: [String] {
         var names: [String] = []
 
         var thread_list: thread_act_array_t? = UnsafeMutablePointer(mutating: [thread_act_t]())
