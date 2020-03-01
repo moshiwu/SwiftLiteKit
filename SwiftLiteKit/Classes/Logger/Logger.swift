@@ -22,6 +22,7 @@ public class SLKConsoleDestination: BaseDestination {
 
         minLevel = .debug
         #if DEBUG
+            minLevel = .verbose
             asynchronously = false
         #endif
     }
