@@ -39,7 +39,7 @@ public extension UIViewController {
             .map { $0 as! T }.first
     }
 
-    func dismissViewController(animated:Bool = true) {
+    @objc func dismissViewController(animated:Bool = true) {
         if let navigationController = self.navigationController, navigationController.viewControllers.first != self {
             navigationController.popViewController(animated: animated)
         } else if presentingViewController != nil {
