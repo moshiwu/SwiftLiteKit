@@ -8,6 +8,11 @@
 import Foundation
 
 public extension URL {
+    init?(string: String?) {
+        guard let string = string else { return nil }
+        self.init(string: string)
+    }
+
     /// 判断文件是否存在，同时判断是否包含"file://"
     var fileExists: Bool {
         return FileManager.default.fileExists(atPath: isFileURL ? path : absoluteString)
