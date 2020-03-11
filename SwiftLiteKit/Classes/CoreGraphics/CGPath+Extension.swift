@@ -17,21 +17,21 @@ extension CGPath {
             switch element.type {
                 case .moveToPoint:
                     let point = element.points[0]
-                    log.debug("moveto - \(point)")
+                    print("moveto - \(point)")
                 case .addLineToPoint:
                     let point = element.points[0]
-                    log.debug("lineto - \(point)")
+                    print("lineto - \(point)")
                 case .addQuadCurveToPoint:
                     let control = element.points[0]
                     let point = element.points[1]
-                    log.debug("quadCurveTo - \(point) - \(control)")
+                    print("quadCurveTo - \(point) - \(control)")
                 case .addCurveToPoint:
                     let control1 = element.points[0]
                     let control2 = element.points[1]
                     let point = element.points[2]
-                    log.debug("curveTo - \(point) - \(control1) - \(control2)")
+                    print("curveTo - \(point) - \(control1) - \(control2)")
                 case .closeSubpath:
-                    log.debug("close")
+                    print("close")
                 @unknown default:
                     break
             }
